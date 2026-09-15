@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Parish Office Dashboard-Borongan Cathedral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+      <svg class="brand-mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="24" cy="24" r="23" fill="#123a63" stroke="#c9932e" stroke-width="1.5"/>
+        <path d="M17 32V22C17 16.4772 20.5817 12 25 12C25 12 25 12 25 12C29.4183 12 33 16.4772 33 22V32" stroke="#f1d9a0" stroke-width="2" stroke-linecap="round"/>
+        <path d="M25 12V8M22.5 9.5H27.5" stroke="#f1d9a0" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="17" y1="32" x2="33" y2="32" stroke="#f1d9a0" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <span class="brand-text">
+        <span class="name">Borongan Cathedral</span><br/>
+        <span class="sub">Parish of the Nativity of Our Lady</span>
+      </span>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a>Request a Certificate</a>
+      <a>Book a Service</a>
+      <a>Track a Request</a>
+      <a href="parish-office.html" class="active">Parish Office</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page page-narrow">
+
+  <div id="officeLockScreen" class="lock-screen">
+    <svg class="lock-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.5"/></svg>
+    <h2>Parish office login</h2>
+    <p style="color:var(--muted);">Staff account required.</p>
+    <div id="officeLoginMessage" class="note-box" style="display:none; text-align:left; margin-bottom:14px;"></div>
+    <form id="officeLoginForm" style="text-align:left;">
+      <div class="field">
+        <label for="of-email">Email address</label>
+        <input id="of-email" type="email" required autocomplete="email" />
+      </div>
+      <div class="field" style="margin-top:14px;">
+        <label for="of-password">Password</label>
+        <input id="of-password" type="password" required autocomplete="current-password" />
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:20px;">Log in</button>
+    </form>
+  </div>
+
+  <div id="officeSignedIn" class="placeholder-card" style="display:none;">
+    <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
+    <h2>Signed in as <span id="officeUserName">—</span></h2>
+    <p>You're logged in. </p>
+    <button id="officeLogoutBtn" type="button" class="btn btn-quiet">Log out</button>
+  </div>
+
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <h4>Cathedral Parish of the Nativity of Our Lady</h4>
+      <p style="font-size:0.9rem; max-width:38ch;">Serving the Catholic community of Borongan City and the Diocese of Borongan since 1710. This site lets you request sacramental certificates and book parish services online.</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a>Request a certificate</a></li>
+        <li><a>Book a service</a></li>
+        <li><a>Track a request</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>09366863781</li>
+        <li>Brgy. F, Borongan City, Eastern Samar 6800</li>
+        <li>Mon–Sat, 8:00 AM–5:00 PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Cathedral Parish of the Nativity of Our Lady, Borongan.</span>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/supabase-client.js"></script>
+<script src="assets/auth.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/office-login.js"></script>
+</body>
+</html>
