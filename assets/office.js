@@ -1,4 +1,4 @@
-var ADMIN_PASSCODE = "Bparish_2026";
+var ADMIN_PASSCODE = "borongan2026"; 
 
 function refreshAdminGate() {
   var unlocked = sessionStorage.getItem('boronganOfficeUnlocked') === '1';
@@ -12,8 +12,8 @@ document.getElementById('lockForm').addEventListener('submit', function (e) {
   var val = document.getElementById('passcodeInput').value;
   if (val === ADMIN_PASSCODE) {
     sessionStorage.setItem('boronganOfficeUnlocked', '1');
-    document.getElementById('lockError').style.display = 'none';
-    refreshAdminGate();
+    document.('lockError').style.display = 'none';
+    refreshAdminGate();getElementById
   } else {
     document.getElementById('lockError').style.display = 'block';
   }
