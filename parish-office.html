@@ -15,7 +15,8 @@
 <header class="site-header">
   <div class="nav-row">
     <a href="index.html" class="brand">
-           <img src="cathedrallogo.gif"style="width: 50px;";>
+       <img src="cathedrallogo.gif"style="width: 50px;";>
+
       <span class="brand-text">
         <span class="name">Borongan Cathedral</span><br/>
         <span class="sub">Parish of the Nativity of Our Lady</span>
@@ -26,42 +27,44 @@
     </button>
     <nav class="main-nav" id="mainNav">
       <a href="index.html">Home</a>
-      <a>Request a Certificate</a>
-      <a>Book a Service</a>
-      <a>Track a Request</a>
-      <a href="parish-office.html" class="active">Parish Office</a>
+      <a href="request-certificate.html">Request a Certificate</a>
+      <a href="book-service.html">Book a Service</a>
+      <a href="track-request.html">Track a Request</a>
+      <a href="parish-office.html" class="nav-cta active">Parish Office</a>
     </nav>
   </div>
 </header>
 
 <main>
-<section class="page page-narrow">
-
-  <div id="officeLockScreen" class="lock-screen">
-    <svg class="lock-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.5"/></svg>
-    <h2>Parish office login</h2>
-    <p style="color:var(--muted);">Staff account required.</p>
-    <div id="officeLoginMessage" class="note-box" style="display:none; text-align:left; margin-bottom:14px;"></div>
-    <form id="officeLoginForm" style="text-align:left;">
-      <div class="field">
-        <label for="of-email">Email address</label>
-        <input id="of-email" type="email" required autocomplete="email" />
+<section class="page" id="office">
+    <div class="wrap">
+      <div id="lockScreen" class="lock-screen">
+        <svg class="lock-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 11V8a4 4 0 018 0v3" stroke="currentColor" stroke-width="1.5"/></svg>
+        <h2>Parish office access</h2>
+        <p style="color:var(--muted);">Staff area — enter the office passcode to view and manage requests.</p>
+        <form id="lockForm" style="display:flex; gap:10px; margin-top:8px;">
+          <input type="password" id="passcodeInput" placeholder="Passcode" style="flex:1; padding:11px 13px; border:1.5px solid var(--line); border-radius:8px;" />
+          <button type="submit" class="btn btn-primary">Enter</button>
+        </form>
+        <p id="lockError" style="color:#a12a2a; font-size:0.85rem; display:none; margin-top:10px;">Incorrect passcode. Try again.</p>
       </div>
-      <div class="field" style="margin-top:14px;">
-        <label for="of-password">Password</label>
-        <input id="of-password" type="password" required autocomplete="current-password" />
+
+      <div id="adminPanel" style="display:none;">
+        <div class="admin-bar">
+          <div>
+            <h2 style="margin-bottom:2px;">Parish office dashboard</h2>
+            <p style="color:var(--muted); margin:0;">All certificate requests and service bookings submitted online.</p>
+          </div>
+          <div class="tabs" id="adminTabs">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="certificate">Certificates</button>
+            <button class="tab-btn" data-filter="booking">Bookings</button>
+          </div>
+        </div>
+        <div id="adminTableWrap"></div>
       </div>
-      <button type="submit" class="btn btn-primary" style="width:100%; margin-top:20px;">Log in</button>
-    </form>
-  </div>
-
-  <div id="officeSignedIn" class="placeholder-card" style="display:none;">
-    <svg class="placeholder-icon" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/></svg>
-    <h2>Signed in as <span id="officeUserName">—</span></h2>
-    <p>You're logged in. </p>
-    <button id="officeLogoutBtn" type="button" class="btn btn-quiet">Log out</button>
-  </div>
-
+    </div>
+  
 </section>
 </main>
 
@@ -74,16 +77,16 @@
     <div>
       <h4>Quick links</h4>
       <ul>
-        <li><a>Request a certificate</a></li>
-        <li><a>Book a service</a></li>
-        <li><a>Track a request</a></li>
+        <li><a href="request-certificate.html">Request a certificate</a></li>
+        <li><a href="book-service.html">Book a service</a></li>
+        <li><a href="track-request.html">Track a request</a></li>
       </ul>
     </div>
     <div>
       <h4>Contact</h4>
       <ul>
-        <li>09366863781</li>
-        <li>Brgy. F, Borongan City, Eastern Samar 6800</li>
+        <li>(055) 261-2294</li>
+        <li>Borongan City, Eastern Samar 6800</li>
         <li>Mon–Sat, 8:00 AM–5:00 PM</li>
       </ul>
     </div>
@@ -96,8 +99,7 @@
 <div id="toast" role="status" aria-live="polite"></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/supabase-client.js"></script>
-<script src="assets/auth.js"></script>
 <script src="assets/common.js"></script>
-<script src="assets/office-login.js"></script>
+<script src="assets/office.js"></script>
 </body>
 </html>
