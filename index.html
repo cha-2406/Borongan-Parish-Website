@@ -21,15 +21,21 @@
         <span class="sub">Parish of the Nativity of Our Lady</span>
       </span>
     </a>
+    <div class="site-search">
+      <svg class="site-search-icon" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="siteSearchInput" placeholder="Search here" autocomplete="off" />
+      <div class="site-search-results" id="siteSearchResults"></div>
+    </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
     <nav class="main-nav" id="mainNav">
       <a href="index.html" class="active">Home</a>
-      <a href="requst-certificate.html">Request a Certificate</a>
+      <a href="request-certificate.html">Request a Certificate</a>
       <a>Book a Service</a>
       <a>Track a Request</a>
       <a href="parish-office.html" class="nav-cta">Parish Office</a>
+</button>
     </nav>
   </div>
 </header>
@@ -43,7 +49,7 @@
           <h1>Request your certificate. <em>Book your service.</em> All from home.</h1>
           <p class="lead">The Cathedral Parish of the Nativity of Our Lady now takes certificate requests and service bookings online, so you can start the process before you ever visit the parish office.</p>
           <div class="hero-actions">
-            <a class="btn btn-gold">Request a certificate</a>
+            <a href="request-certificate.html" class="btn btn-gold">Request a certificate</a>
             <a class="btn btn-outline">Book a service</a>
           </div>
         </div>
@@ -80,7 +86,7 @@
 
     <div class="wrap">
       <div class="quicklinks">
-        <a class="qcard">
+        <a href="request-certificate.html" class="qcard">
           <span class="qicon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M7 3h7l5 5v13H7V3z" stroke="currentColor" stroke-width="1.6"/><path d="M14 3v5h5" stroke="currentColor" stroke-width="1.6"/><path d="M9.5 13h5M9.5 16h5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
           <h3>Request a certificate</h3>
           <p>Baptismal, confirmation, marriage, and burial records request online, pick up or receive by email.</p>
@@ -132,39 +138,39 @@
         </div>
       </div>
       </br>
-        <h2 style="text-align: center;">Submit Feedback</h2>
-           <div id="bookFormWrap" class="form-card" style="width: 100%;">
-        <form id="bookForm" novalidate>
-          <div class="form-grid">
-            <div class="field">
-              <label for="bf-name">Your full name <span class="hint">(optional)</span></label>
-              <input id="bf-name" name="requestorName" type="text" required autocomplete="name" />
+           <section class="feedback-section">
+    <div class="feedback-container">
+       <h2>Submit Feedback</h2>
+        <form id="feedbackForm" class="feedback-form">
+            <div class="feedback-grid">
+                <div class="form-group">
+                    <label for="feedbackName">Your full name<span>(optional)</span></label>
+                    <input type="text" id="feedbackName" name="full_name" placeholder="Your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="feedbackContact"> Contact number <span>(optional)</span> </label>
+                    <input type="tel" id="feedbackContact" name="contact_number" placeholder="09XX XXX XXXX" maxlength="11" inputmode="numeric">
+                </div>
+
+                <div class="form-group">
+                    <label for="feedbackEmail">Email address <span>(optional)</span></label>
+
+                    <input type="email" id="feedbackEmail" name="email"placeholder="Your email address">
+                </div>
+
             </div>
-            <div class="field">
-              <label for="bf-contact">Contact number <span class="hint">(optional)</span></label>
-              <input id="bf-contact" name="contactNumber" type="tel" required placeholder="09XX XXX XXXX" />
+            <div class="form-group">
+                <label for="feedbackMessage"> Message </label>
+                <textarea id="feedbackMessage" name="message" placeholder="Write a Message" required></textarea>
             </div>
-            <div class="field full">
-              <label for="bf-email">Email address <span class="hint">(optional)</span></label>
-              <input id="bf-email" name="email" type="email" required autocomplete="email" />
-            </div>
-          
-            <div class="field full">
-              <label for="bf-notes">Message </label>
-              <textarea id="bf-notes" name="notes" placeholder="Write a Message"></textarea>
-            </div>
-          </div>
-          <div class="form-foot">
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </div>
-        </form>
-      </div>
+            <button type="submit" id="feedbackSubmit" class="feedback-submit">Submit</button>          
+          </form>
+    </div>
+
+</section>
     </div>
   
-</section>
-</main>
-  
-    
 </section>
 </main>
 
@@ -197,6 +203,8 @@
 </footer>
 
 <div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/supabase-client.js"></script>
 <script src="assets/common.js"></script>
-</body>
+<script src="assets/site-search.js"></script></body>
 </html>

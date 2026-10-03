@@ -1,6 +1,3 @@
-/* ---------------- auth: session helpers ---------------- */
-/* Requires assets/supabase-client.js to be loaded first (provides `sb`). */
-
 async function getCurrentUser() {
   try {
     var res = await sb.auth.getUser();

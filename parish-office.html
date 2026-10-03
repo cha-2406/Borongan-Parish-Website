@@ -22,6 +22,11 @@
         <span class="sub">Parish of the Nativity of Our Lady</span>
       </span>
     </a>
+    <div class="site-search">
+      <svg class="site-search-icon" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="siteSearchInput" placeholder="Search this site..." autocomplete="off" />
+      <div class="site-search-results" id="siteSearchResults"></div>
+    </div>
     <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
@@ -48,6 +53,30 @@
         </form>
         <p id="lockError" style="color:#a12a2a; font-size:0.85rem; display:none; margin-top:10px;">Incorrect passcode. Try again.</p>
       </div>
+
+       <div id="adminPanel" style="display:none;">
+        <div class="admin-bar">
+          <div>
+            <h2 style="margin-bottom:2px;">Parish office dashboard</h2>
+            <p style="color:var(--muted); margin:0;">All certificate requests and service bookings submitted online.</p>
+          </div>
+          <div class="tabs" id="adminTabs">
+            <button class="tab-btn active" data-filter="all">All</button>
+            <button class="tab-btn" data-filter="certificate">Certificates</button>
+            <button class="tab-btn" data-filter="booking">Bookings</button>
+            <button class="tab-btn" data-filter="feedback">Feedback</button>
+            <button class="btn btn-gold" id="logoutBtn" type="button">Logout</button>
+          </div>
+        </div>
+
+        <div class="field" style="max-width:340px; margin-bottom:20px;">
+      <label for="adminSearchInput">Search by name or reference number</label>
+      <input type="text" id="adminSearchInput" placeholder="e.g. Juan Dela Cruz or BOR-2026-0001" autocomplete="off" />
+    </div>
+
+        <div id="adminTableWrap"></div>
+      </div>
+    </div>
   
 </section>
 </main>
@@ -84,6 +113,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="assets/supabase-client.js"></script>
 <script src="assets/common.js"></script>
+<script src="assets/site-search.js"></script>
 <script src="assets/office.js"></script>
 </body>
 </html>

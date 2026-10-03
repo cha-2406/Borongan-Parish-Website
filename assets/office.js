@@ -12,11 +12,16 @@ document.getElementById('lockForm').addEventListener('submit', function (e) {
   var val = document.getElementById('passcodeInput').value;
   if (val === ADMIN_PASSCODE) {
     sessionStorage.setItem('boronganOfficeUnlocked', '1');
-    document.('lockError').style.display = 'none';
+    document.getElementById('lockError').style.display = 'none';
     refreshAdminGate();getElementById
   } else {
     document.getElementById('lockError').style.display = 'block';
   }
+});
+
+document.getElementById('logoutBtn').addEventListener('click', function() {
+  sessionStorage.removeItem('boronganOfficeUnlocked');
+  refreshAdminGate();
 });
 
 var currentFilter = 'all';
@@ -28,6 +33,8 @@ document.getElementById('adminTabs').addEventListener('click', function (e) {
   currentFilter = btn.getAttribute('data-filter');
   loadAdminTable(currentFilter);
 });
+
+
 
 async function loadAdminTable(filter) {
   var wrap = document.getElementById('adminTableWrap');
@@ -41,7 +48,7 @@ async function loadAdminTable(filter) {
   var rowsHtml = items.map(function (i) {
     return '<tr data-id="' + i.id + '">' +
       '<td>' + i.ref + '</td>' +
-      '<td>' + (i.type === 'certificate' ? 'Certificate' : 'Booking') + '</td>' +
+      '<td>' + (i.type === 'certificate' ? 'Certificate' : i.type === 'booking' ? 'Booking' : 'Feedback') + '</td>' +
       '<td>' + (i.name || '—') + '</td>' +
       '<td>' + (i.subject || '—') + '</td>' +
       '<td><span class="status-badge status-' + i.status.replace(/ /g, '-') + '">' + i.status + '</span></td>' +
