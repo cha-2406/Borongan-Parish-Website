@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Book a Service-Borongan Cathedral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+           <img src="cathedrallogo.gif"style="width: 50px;";>
+      <span class="brand-text">
+        <span class="name">Borongan Cathedral</span><br/>
+        <span class="sub">Parish of the Nativity of Our Lady</span>
+      </span>
+    </a>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="request-certificate.html">Request a Certificate</a>
+      <a href="book-service.html" class="active">Book a Service</a>
+      <a href="track-request.html">Track a Request</a>
+      <a href="parish-office.html" class="nav-cta">Parish Office</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page" id="booking">
+    <div class="wrap page-narrow">
+      <div class="section-head">
+        <h2>Book a service</h2>
+        <p>Tell us what you need and your preferred date. The office will confirm availability with the assigned priest.</p>
+      </div>
+
+      <div id="bookFormWrap" class="form-card" style="width: 110%;">
+        <form id="bookForm" novalidate>
+          <div class="form-grid">
+            <div class="field">
+              <label for="bf-name">Your full name</label>
+              <input id="bf-name" name="requestorName" type="text" required autocomplete="name" />
+            </div>
+            <div class="field">
+              <label for="bf-contact">Contact number</label>
+              <input id="bf-contact" name="contactNumber" type="tel" required placeholder="09XX XXX XXXX" />
+            </div>
+            <div class="field full">
+              <label for="bf-email">Email address</label>
+              <input id="bf-email" name="email" type="email" required autocomplete="email" />
+            </div>
+            <div class="field">
+              <label for="bf-type">Service</label>
+              <select id="bf-type" name="serviceType" required>
+                <option value="" disabled selected>Select a service</option>
+                <option>Baptism</option>
+                <option>Wedding / Church Marriage</option>
+                <option>Funeral Mass / Burial</option>
+                <option>Mass Intention (thanksgiving, birthday, death anniversary)</option>
+                <option>Confession appointment</option>
+                <option>House / Vehicle Blessing</option>
+                <option>Anointing of the Sick (home visit)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="bf-subject">For whom / occasion</label>
+              <span class="hint">e.g. child's name for baptism, couple's names for a wedding</span>
+              <input id="bf-subject" name="subjectName" type="text" required />
+            </div>
+            <div class="field">
+              <label for="bf-date">Preferred date</label>
+              <input id="bf-date" name="preferredDate" type="date" required />
+            </div>
+            <div class="field">
+              <label for="bf-time">Preferred time</label>
+              <input id="bf-time" name="preferredTime" type="time" required />
+            </div>
+            <div class="field full">
+              <label for="bf-notes">Additional details <span class="hint">(optional)</span></label>
+              <textarea id="bf-notes" name="notes" placeholder="Number of guests, sponsors, special requests, or a backup date"></textarea>
+            </div>
+          </div>
+          <div class="form-foot">
+            <span class="req-note">The office will call or email you to confirm the schedule.</span>
+            <button type="submit" class="btn btn-primary">Submit booking</button>
+          </div>
+        </form>
+      </div>
+
+      <div id="bookConfirm" class="form-card confirm-panel" style="display:none;">
+        <h3>Booking submitted</h3>
+        <p style="color:var(--muted)">Keep this reference number — you'll need it to track your booking.</p>
+        <div class="badge-ref" id="bookRefText">BOR-0000-0000</div>
+        <div><button class="copy-btn" id="bookCopyBtn" type="button">Copy reference number</button></div>
+        <div style="margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
+          <a href="track-request.html" class="btn btn-quiet">Track this booking</a>
+          <button class="btn btn-outline" id="bookAnotherBtn" type="button" style="color:var(--navy-900); border-color:var(--line);">Submit another</button>
+        </div>
+      </div>
+    </div>
+  
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <h4>Cathedral Parish of the Nativity of Our Lady</h4>
+      <p style="font-size:0.9rem; max-width:38ch;">Serving the Catholic community of Borongan City and the Diocese of Borongan since 1710. This site lets you request sacramental certificates and book parish services online.</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="request-certificate.html">Request a certificate</a></li>
+        <li><a href="book-service.html">Book a service</a></li>
+        <li><a href="track-request.html">Track a request</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>09366863781</li>
+        <li>Borongan City, Eastern Samar 6800</li>
+        <li>Mon–Sat, 8:00 AM–5:00 PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Cathedral Parish of the Nativity of Our Lady, Borongan.</span>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/supabase-client.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/booking.js"></script>
+</body>
+</html>
