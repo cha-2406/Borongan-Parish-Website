@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Track a Request-Borongan Cathedral</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a href="index.html" class="brand">
+           <img src="cathedrallogo.gif"style="width: 50px;";>
+      <span class="brand-text">
+        <span class="name">Borongan Cathedral</span><br/>
+        <span class="sub">Parish of the Nativity of Our Lady</span>
+      </span>
+    </a>
+    <div class="site-search">
+      <svg class="site-search-icon" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.8"/><path d="M20 20l-4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <input type="text" id="siteSearchInput" placeholder="Search here" autocomplete="off" />
+      <div class="site-search-results" id="siteSearchResults"></div>
+    </div>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="request-certificate.html">Request a Certificate</a>
+      <a href="book-service.html">Book a Service</a>
+      <a href="track-request.html" class="active">Track a Request</a>
+      <a href="parish-office.html" class="nav-cta">Parish Office</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="page" id="track">
+    <div class="wrap page-narrow">
+      <div class="section-head">
+        <h2>Track a request</h2>
+        <p>Enter the reference number you received when you submitted a certificate request or a booking.</p>
+      </div>
+      <form id="trackForm" class="track-form">
+        <input type="text" id="trackInput" placeholder="e.g. BOR-2026-0007" required />
+        <button type="submit" class="btn btn-primary">Track</button>
+      </form>
+      <div class="track-result" id="trackResult"></div>
+    </div>
+  
+</section>
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div>
+      <h4>Cathedral Parish of the Nativity of Our Lady</h4>
+      <p style="font-size:0.9rem; max-width:38ch;">Serving the Catholic community of Borongan City and the Diocese of Borongan since 1710. This site lets you request sacramental certificates and book parish services online.</p>
+    </div>
+    <div>
+      <h4>Quick links</h4>
+      <ul>
+        <li><a href="request-certificate.html">Request a certificate</a></li>
+        <li><a href="book-service.html">Book a service</a></li>
+        <li><a href="track-request.html">Track a request</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <ul>
+        <li>09675207825</li>
+        <li>Borongan City, Eastern Samar 6800</li>
+        <li>Mon–Sat, 8:00 AM–5:00 PM</li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap footer-bottom">
+    <span>© 2026 Cathedral Parish of the Nativity of Our Lady, Borongan.</span>
+  </div>
+</footer>
+
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="assets/supabase-client.js"></script>
+<script src="assets/common.js"></script>
+<script src="assets/track.js"></script>
+<script src="assets/site-search.js"></script>
+
+</body>
+</html>
